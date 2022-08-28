@@ -1,9 +1,14 @@
 extern crate sdl2;
+pub mod variables;
+
+const CELL_SIZE: u32 = 64;
+const WINDOW_PADDING: u32 = 40;
+const WINDOW_SIZE: u32 = CELL_SIZE * 8 + WINDOW_PADDING * 2;
 
 fn main() {
     let sdl_context = sdl2::init().unwrap();
     let video_subsystem = sdl_context.video().unwrap();
-    let window = video_subsystem.window("pc sim", 400, 400)
+    let window = video_subsystem.window("pc sim", WINDOW_SIZE, WINDOW_SIZE)
         .position_centered()
         .build()
         .unwrap();
